@@ -5,6 +5,7 @@ import java.util.List;
 
 import static ua.dtsebulia.graph.BFS.traverseWithBFS;
 import static ua.dtsebulia.graph.DFS.traverseWithDFS;
+import static ua.dtsebulia.graph.NumberOfProvinces.numProvinces;
 
 public class Main {
 
@@ -23,12 +24,33 @@ public class Main {
         adj.add(new ArrayList<>(List.of(6, 11))); //9
         adj.add(new ArrayList<>(List.of(6, 11))); //10
         adj.add(new ArrayList<>(List.of(7, 8, 9, 10))); //11
-        adj.add(new ArrayList<>(List.of(13))); //12
-        adj.add(new ArrayList<>(List.of(12))); //13
 
         int startVertex = 1;
-        System.out.println(traverseWithBFS(startVertex, adj));
-        System.out.println(traverseWithDFS(startVertex, adj));
+        System.out.println("BFS Traversal: " + traverseWithBFS(startVertex, adj));
+        System.out.println("DFS Traversal: " + traverseWithDFS(startVertex, adj));
+
+        ArrayList<ArrayList<Integer>> adjacencyMatrix = new ArrayList<>();
+
+        // Adding rows to the adjacency matrix
+        for (int i = 0; i < 4; i++) {
+            ArrayList<Integer> row = new ArrayList<>();
+            for (int j = 0; j < 4; j++) {
+                row.add(0); // Initialize with 0 (no edges)
+            }
+            adjacencyMatrix.add(row);
+        }
+
+        // Adding edges
+        adjacencyMatrix.get(0).set(1, 1);
+        adjacencyMatrix.get(1).set(0, 1);
+
+        adjacencyMatrix.get(1).set(2, 1);
+        adjacencyMatrix.get(2).set(1, 1);
+
+        adjacencyMatrix.get(3).set(3, 1); // Vertex 3 isolated
+
+        int provinces = numProvinces(adjacencyMatrix);
+        System.out.println("Number of provinces: " + provinces);
 
     }
 
