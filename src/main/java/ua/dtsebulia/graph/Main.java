@@ -7,6 +7,7 @@ import static ua.dtsebulia.graph.BFS.traverseWithBFS;
 import static ua.dtsebulia.graph.DFS.traverseWithDFS;
 import static ua.dtsebulia.graph.NumberOfIslands.numIslands;
 import static ua.dtsebulia.graph.NumberOfProvinces.numProvinces;
+import static ua.dtsebulia.graph.RottingOranges.rottingOranges;
 
 public class Main {
 
@@ -62,6 +63,19 @@ public class Main {
 
         int numIslands = numIslands(grid);
         System.out.println("Number of islands: " + numIslands);
+
+        int[][] grid2 = {
+                {2, 1, 1},
+                {1, 1, 0},
+                {0, 1, 1}
+        };
+
+        int time = rottingOranges(grid2);
+        if (time == -1) {
+            System.out.println("All fresh oranges cannot be rotten.");
+        } else {
+            System.out.println("Time taken: " + time);
+        }
     }
 
 }
