@@ -93,6 +93,33 @@ public class Main {
         System.out.println("Grid in the beginning: " + Arrays.deepToString(grid3));
         int[][] newGrid = floodFill(startingRow, startingColumn, grid3, color);
         System.out.println("Grid after flooding: " + Arrays.deepToString(newGrid));
+
+        ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
+        int numVertices = 4;
+
+        for (int i = 0; i < numVertices; i++) {
+            adjList.add(new ArrayList<>());
+        }
+
+        // Add edges to the adjacency list
+        addEdge(adjList, 0, 1);
+        addEdge(adjList, 1, 2);
+        addEdge(adjList, 2, 3);
+        addEdge(adjList, 3, 0);
+
+        DetectACycleBFS cycleDetector = new DetectACycleBFS();
+        boolean hasCycle = cycleDetector.isCycle(adjList);
+
+        if (hasCycle) {
+            System.out.println("The graph contains a cycle.");
+        } else {
+            System.out.println("The graph does not contain a cycle.");
+        }
     }
 
+    private static void addEdge(ArrayList<ArrayList<Integer>> adjList, int u, int v) {
+        adjList.get(u).add(v);
+        adjList.get(v).add(u);
+
+    }
 }
