@@ -1,10 +1,12 @@
 package ua.dtsebulia.graph;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static ua.dtsebulia.graph.BFS.traverseWithBFS;
 import static ua.dtsebulia.graph.DFS.traverseWithDFS;
+import static ua.dtsebulia.graph.FloodFill.floodFill;
 import static ua.dtsebulia.graph.NumberOfIslands.numIslands;
 import static ua.dtsebulia.graph.NumberOfProvinces.numProvinces;
 import static ua.dtsebulia.graph.RottingOranges.rottingOranges;
@@ -76,6 +78,21 @@ public class Main {
         } else {
             System.out.println("Time taken: " + time);
         }
+
+        int[][] grid3 = {
+                {1, 1, 1, 1},
+                {1, 1, 0, 1},
+                {1, 0, 1, 0},
+                {1, 1, 1, 1}
+        };
+
+        int startingRow = 0;
+        int startingColumn = 0;
+        int color = 2;
+
+        System.out.println("Grid in the beginning: " + Arrays.deepToString(grid3));
+        int[][] newGrid = floodFill(startingRow, startingColumn, grid3, color);
+        System.out.println("Grid after flooding: " + Arrays.deepToString(newGrid));
     }
 
 }
