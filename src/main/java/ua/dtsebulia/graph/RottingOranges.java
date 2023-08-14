@@ -5,6 +5,21 @@ import java.util.Queue;
 
 public class RottingOranges {
 
+    public static void main(String[] args) {
+        int[][] grid = {
+                {2, 1, 1},
+                {1, 1, 0},
+                {0, 1, 1}
+        };
+
+        int time = rottingOranges(grid);
+        if (time == -1) {
+            System.out.println("All fresh oranges cannot be rotten.");
+        } else {
+            System.out.println("Time taken: " + time);
+        }
+    }
+
     public static int rottingOranges(int[][] grid) {
 
         int n = grid.length;

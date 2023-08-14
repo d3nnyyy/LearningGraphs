@@ -6,6 +6,37 @@ import java.util.Queue;
 
 public class DetectACycleBFS {
 
+    public static void main(String[] args) {
+
+        ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
+        int numVertices = 4;
+
+        for (int i = 0; i < numVertices; i++) {
+            adjList.add(new ArrayList<>());
+        }
+
+        // Add edges to the adjacency list
+        addEdge(adjList, 0, 1);
+        addEdge(adjList, 1, 2);
+        addEdge(adjList, 2, 3);
+        addEdge(adjList, 3, 0);
+
+        DetectACycleBFS cycleDetector = new DetectACycleBFS();
+        boolean hasCycle = cycleDetector.isCycle(adjList);
+
+        if (hasCycle) {
+            System.out.println("The graph contains a cycle.");
+        } else {
+            System.out.println("The graph does not contain a cycle.");
+        }
+    }
+
+    private static void addEdge(ArrayList<ArrayList<Integer>> adjList, int u, int v) {
+        adjList.get(u).add(v);
+        adjList.get(v).add(u);
+
+    }
+
     public boolean isCycle(ArrayList<ArrayList<Integer>> adjList) {
 
         boolean[] visitedArray = new boolean[adjList.size()];

@@ -1,6 +1,25 @@
 package ua.dtsebulia.graph;
 
+import java.util.Arrays;
+
 public class FloodFill {
+
+    public static void main(String[] args) {
+        int[][] grid3 = {
+                {1, 1, 1, 1},
+                {1, 1, 0, 1},
+                {1, 0, 1, 0},
+                {1, 1, 1, 1}
+        };
+
+        int startingRow = 0;
+        int startingColumn = 0;
+        int color = 2;
+
+        System.out.println("Grid in the beginning: " + Arrays.deepToString(grid3));
+        int[][] newGrid = floodFill(startingRow, startingColumn, grid3, color);
+        System.out.println("Grid after flooding: " + Arrays.deepToString(newGrid));
+    }
 
     public static int[][] floodFill(int startingRow, int startingColumn, int[][] grid, int color) {
 
