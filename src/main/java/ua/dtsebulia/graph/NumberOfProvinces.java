@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class NumberOfProvinces {
 
-    static int numProvinces(ArrayList<ArrayList<Integer>> adjacencyMatrix) {
+    public static int numProvinces(ArrayList<ArrayList<Integer>> adjacencyMatrix) {
 
         int V = adjacencyMatrix.size();
 

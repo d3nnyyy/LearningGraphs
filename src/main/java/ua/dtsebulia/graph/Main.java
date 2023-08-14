@@ -5,6 +5,7 @@ import java.util.List;
 
 import static ua.dtsebulia.graph.BFS.traverseWithBFS;
 import static ua.dtsebulia.graph.DFS.traverseWithDFS;
+import static ua.dtsebulia.graph.NumberOfIslands.numIslands;
 import static ua.dtsebulia.graph.NumberOfProvinces.numProvinces;
 
 public class Main {
@@ -47,11 +48,20 @@ public class Main {
         adjacencyMatrix.get(1).set(2, 1);
         adjacencyMatrix.get(2).set(1, 1);
 
-        adjacencyMatrix.get(3).set(3, 1); // Vertex 3 isolated
+        adjacencyMatrix.get(3).set(3, 1);
 
         int provinces = numProvinces(adjacencyMatrix);
         System.out.println("Number of provinces: " + provinces);
 
+        char[][] grid = {
+                {'1', '1', '0', '0', '0'},
+                {'1', '1', '0', '0', '0'},
+                {'0', '0', '1', '0', '0'},
+                {'0', '0', '0', '1', '1'}
+        };
+
+        int numIslands = numIslands(grid);
+        System.out.println("Number of islands: " + numIslands);
     }
 
 }
