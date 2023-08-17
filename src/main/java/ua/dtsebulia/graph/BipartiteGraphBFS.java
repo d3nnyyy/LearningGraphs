@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class BipartiteGraph {
+public class BipartiteGraphBFS {
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
