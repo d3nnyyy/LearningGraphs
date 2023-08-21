@@ -2,9 +2,23 @@ package ua.dtsebulia.graph;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class KahnsAlgorithm {
+
+    public static void main(String[] args) {
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+
+        adj.add(new ArrayList<>());
+        adj.add(new ArrayList<>()); //1
+        adj.add(new ArrayList<>(List.of(3))); //2
+        adj.add(new ArrayList<>(List.of(1))); //3
+        adj.add(new ArrayList<>(List.of(0,1))); //4
+        adj.add(new ArrayList<>(List.of(0,2))); //5
+
+        System.out.println(sort(adj));
+    }
 
     public static ArrayList<Integer> sort(ArrayList<ArrayList<Integer>> adj) {
 
