@@ -22,7 +22,7 @@ public class DijkstraPQ {
         adj.get(2).add(new ArrayList<>(Arrays.asList(4, 6)));
         adj.get(3).add(new ArrayList<>(Arrays.asList(4, 1)));
 
-        int sourceNode = 4;
+        int sourceNode = 0;
 
         int[] distances = dijkstra(adj, sourceNode);
 
